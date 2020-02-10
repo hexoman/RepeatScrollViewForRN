@@ -20,7 +20,7 @@ export default class RepeatScrollView extends Component {
         if (contentOffset.x <= this.props.offset) {
             this.setState(prevState => ({
                 data: [...prevState.data, ...data],
-            }), () => this.list.scrollToIndex({ index: length, animated: false }))
+            }), () => this.list.scrollToIndex({ index: dataLenght, animated: false }))
         }
         if (layoutMeasurement.width + contentOffset.x >= contentSize.width - this.props.offset && this.state.end) {
             this.setState(prevState => ({
@@ -39,7 +39,7 @@ export default class RepeatScrollView extends Component {
         this.setState(prevState => ({
             data: [...prevState.data, ...prevState.data]
         }))
-        setTimeout(() => { this.list.scrollToIndex({ animated: false, index: length }) }, 500);
+        setTimeout(() => { this.list.scrollToIndex({ animated: false, index: dataLenght }) }, 500);
     }
     render() {
         return (
