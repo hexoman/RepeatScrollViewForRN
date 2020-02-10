@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { FlatList } from 'react-native';
+import PropTypes from 'prop-types'
 
 export default class RepeatScrollView extends Component {
     constructor(props) {
@@ -50,7 +51,18 @@ export default class RepeatScrollView extends Component {
                 renderItem={this.props.renderItem}
                 horizontal={true}
                 onScroll={({ nativeEvent }) => this.didScroll(nativeEvent)}
+                showsVerticalScrollIndicator={this.props.showsVerticalScrollIndicator}
             />
         );
     }
+}
+
+RepeatScrollView.propTypes = {
+    offset: PropTypes.number,
+    showsVerticalScrollIndicator: PropTypes.bool
+}
+
+RepeatScrollView.defaultProps = {
+    offset: 20,
+    showsVerticalScrollIndicator: false
 }
