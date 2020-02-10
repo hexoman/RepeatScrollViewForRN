@@ -26,6 +26,7 @@ const App: () => React$Node = () => {
            <View style={styles.back}>
               <RepeatScrollView
                 data={ picArr }
+                pagingEnabled={true}
                 renderItem={({ item }) =>  
                   <Image source={item} style={styles.bannerItem}/>}
               />
